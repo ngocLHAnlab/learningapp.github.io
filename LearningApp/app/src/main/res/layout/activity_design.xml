@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.learningapp.design.DesignViewModel" />
+    </data>
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        tools:context=".design.DesignActivity">
+        <LinearLayout
+            android:layout_marginHorizontal="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="50dp"
+                android:id="@+id/textDate"
+                android:layout_marginEnd="10dp"
+                android:gravity="center"
+                android:textColor="@color/lavender"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:background="@drawable/background_border"
+                android:text="date"
+                android:onClick="@{()->viewModel.dateButtonClick()}"
+                android:textColor="@color/lavender"
+                android:id="@+id/date"/>
+        </LinearLayout>
+        <Button
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/background_border"
+            android:text="notify"
+            android:onClick="@{()->viewModel.notifyButtonClick()}"
+            android:textColor="@color/lavender"
+            android:id="@+id/btn_notify"/>
+    </LinearLayout>
+</layout>
