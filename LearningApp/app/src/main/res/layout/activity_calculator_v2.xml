@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".calculator.view.CalculatorV2Activity">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:inputType="number"
+            android:textSize="20sp"
+            android:textColor="@color/lavender"
+            android:background="@drawable/background_caculator_border"
+            android:id="@+id/edt_num1"
+            android:autofillHints=""
+            tools:ignore="LabelFor" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:textStyle="bold"
+            android:textColor="@color/lavender"
+            android:textSize="35sp"
+            android:gravity="center"
+            tools:ignore="HardcodedText" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textSize="20sp"
+            android:textColor="@color/lavender"
+            android:gravity="center"
+            android:layout_margin="5dp"
+            android:inputType="number"
+            android:background="@drawable/background_caculator_border"
+            android:id="@+id/edt_num2"
+            android:autofillHints=""
+            tools:ignore="LabelFor" />
+        <TextView
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="="
+            android:textStyle="bold"
+            android:onClick="btnEqualClick"
+            android:textColor="@color/white"
+            android:background="@drawable/background_caculator"
+            android:textSize="35sp"
+            android:gravity="center"
+            tools:ignore="HardcodedText,UsingOnClickInXml" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textSize="20sp"
+            android:textColor="@color/lavender"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:background="@drawable/background_caculator_border"
+            android:id="@+id/txt_sum"/>
+    </LinearLayout>
+</layout>

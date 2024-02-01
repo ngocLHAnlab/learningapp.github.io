@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent"
-        tools:context=".calculator.CalculatorActivity">
+        tools:context=".calculator.view.CalculatorActivity">
         <TextView
             android:text="@{viewModel.input}"
             android:layout_width="match_parent"
@@ -18,11 +18,15 @@
             android:id="@+id/txt_input"
             android:textStyle="bold"
             android:textSize="40sp"
+            android:layout_margin="5dp"
             android:padding="10dp"
             android:gravity="end"
+            android:background="@drawable/background_caculator_border"
             android:textColor="@color/lavender"/>
         <TextView
             android:text="@{viewModel.output}"
+            android:layout_margin="5dp"
+            android:background="@drawable/background_caculator_border"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txt_output"
@@ -50,7 +54,8 @@
                     android:textSize="25sp"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    android:id="@+id/btn_off"/>
+                    android:id="@+id/btn_off"
+                    android:onClick="@{()->viewModel.offButtonClick()}"/>
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -61,7 +66,8 @@
                     android:textSize="25sp"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    android:id="@+id/btn_clear"/>
+                    android:id="@+id/btn_clear"
+                    android:onClick="@{()->viewModel.clearButtonClick()}"/>
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -72,7 +78,8 @@
                     android:textSize="25sp"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    android:id="@+id/btn_percent"/>
+                    android:id="@+id/btn_percent"
+                    android:onClick="@{()->viewModel.buttonPERCENTClick()}"/>
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -83,7 +90,8 @@
                     android:textSize="25sp"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    android:id="@+id/btn_divide"/>
+                    android:id="@+id/btn_divide"
+                    android:onClick="@{()->viewModel.buttonDIVISIONClick()}"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -136,7 +144,8 @@
                     android:textSize="25sp"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    android:id="@+id/btn_multiply"/>
+                    android:id="@+id/btn_multiply"
+                    android:onClick="@{()->viewModel.buttonMULTIPLYClick()}"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -187,6 +196,7 @@
                     android:layout_margin="3dp"
                     android:text="-"
                     android:textSize="25sp"
+                    android:onClick="@{()->viewModel.buttonSUBTRACTClick()}"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:id="@+id/btn_subtract"/>
@@ -272,7 +282,8 @@
                     android:textSize="25sp"
                     android:textColor="@color/lavender"
                     android:textStyle="bold"
-                    android:id="@+id/btn_point"/>
+                    android:id="@+id/btn_point"
+                    android:onClick="@{()->viewModel.dotButtonClick()}"/>
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -283,7 +294,8 @@
                     android:textSize="25sp"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    android:id="@+id/btn_equal"/>
+                    android:id="@+id/btn_equal"
+                    android:onClick="@{()->viewModel.equalButtonClick()}"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

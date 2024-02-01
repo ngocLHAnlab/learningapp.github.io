@@ -7,6 +7,8 @@ enum class TypeButton{
     login,
     recy,
     calculator,
+    calculator_v2,
+    news,
     datePicker,
     splass,
     notification
