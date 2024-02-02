@@ -19,9 +19,6 @@ class CalculatorViewModel:BaseObservable() {
     var output = MutableLiveData("0")
     var firstValue:Double = 0.0
     var secondValue:Double = 0.0
-    init {
-
-    }
     fun numberButtonClick(num: Int){
         input.value+=num
 //        if (input.value!!.toDouble() == 0.0){

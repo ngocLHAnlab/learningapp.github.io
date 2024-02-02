@@ -14,6 +14,7 @@ class MainViewModel : ViewModel() {
     init {
         CoroutineScope(Dispatchers.Main).launch {
             val productList = ArrayList<ButtonTypeObject>()
+            productList.add(ButtonTypeObject("RoomDB", TypeButton.roomDB))
             productList.add(ButtonTypeObject("News", TypeButton.news))
             productList.add(ButtonTypeObject("Design", TypeButton.design))
             productList.add(ButtonTypeObject("Login", TypeButton.login))

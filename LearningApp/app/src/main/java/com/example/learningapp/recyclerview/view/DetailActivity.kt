@@ -1,17 +1,17 @@
 package com.example.learningapp.recyclerview.view
 
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.learningapp.R
 import com.example.learningapp.databinding.ActivityDetailBinding
 import com.example.learningapp.recyclerview.model.PersonObject
 import com.example.learningapp.recyclerview.viewModel.PersonViewModel
-import java.io.Serializable
 
 class DetailActivity : AppCompatActivity() {
+
     lateinit var binding:ActivityDetailBinding
     lateinit var viewModel: PersonViewModel
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)

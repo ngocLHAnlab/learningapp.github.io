@@ -3,6 +3,7 @@ package com.example.learningapp.home.view
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
@@ -20,6 +21,7 @@ import com.example.learningapp.home.viewmodel.MainViewModel
 import com.example.learningapp.login.LoginActivity
 import com.example.learningapp.news.view.NewsActivity
 import com.example.learningapp.recyclerview.view.RecyclerViewActivity
+import com.example.learningapp.roomDatabase.RoomLearningActivity
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -36,6 +38,7 @@ class MainActivity : AppCompatActivity() {
             val adapter = ButtonTypeAdapter(baseContext, it, object : ButtonTypeInterface {
                 override fun click(typeButton: TypeButton) {
                     when (typeButton){
+                        TypeButton.roomDB -> startActivity(Intent(baseContext, RoomLearningActivity::class.java))
                         TypeButton.news -> startActivity(Intent(baseContext, NewsActivity::class.java))
                         TypeButton.design -> startActivity(Intent(baseContext, DesignActivity::class.java))
                         TypeButton.login -> startActivity(Intent(baseContext, LoginActivity::class.java))
