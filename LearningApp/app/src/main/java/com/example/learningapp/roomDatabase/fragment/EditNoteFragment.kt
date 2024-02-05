@@ -14,6 +14,9 @@ import com.example.learningapp.databinding.FragmentEditNoteBinding
 import com.example.learningapp.roomDatabase.RoomLearningActivity
 import com.example.learningapp.roomDatabase.model.Note
 import com.example.learningapp.roomDatabase.viewmodel.NoteViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider {
 
@@ -43,8 +46,10 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider {
             val noteTitle = binding.editNoteTitle.text.toString().trim()
             val noteDesc = binding.editNoteDesc.text.toString().trim()
             if (noteTitle.isNotEmpty()){
-                val note = Note(0, noteTitle, noteDesc)
-                notesViewModel.updateNote(note)
+                val note = Note(currentNote.id, noteTitle, noteDesc)
+                GlobalScope.launch(Dispatchers.IO) {
+                    notesViewModel.updateNote(note)
+                }
                 view.findNavController().popBackStack(R.id.homeFragment, false)
             }else{
                 Toast.makeText(context, "Please enter note title", Toast.LENGTH_SHORT).show()
@@ -56,7 +61,9 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider {
             setTitle("Delete note")
             setMessage("Do you want to delete this note?")
             setPositiveButton("Delete"){_,_->
-                notesViewModel.deleteNote(currentNote)
+                GlobalScope.launch(Dispatchers.IO) {
+                    notesViewModel.deleteNote(currentNote)
+                }
                 Toast.makeText(context, "Note deleted", Toast.LENGTH_SHORT).show()
                 view?.findNavController()?.popBackStack(R.id.homeFragment, false)
             }

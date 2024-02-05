@@ -1,17 +1,23 @@
 package com.example.learningapp.roomDatabase.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.findNavController
+import androidx.room.Room
 import com.example.learningapp.R
 import com.example.learningapp.databinding.FragmentAddNoteBinding
 import com.example.learningapp.roomDatabase.RoomLearningActivity
 import com.example.learningapp.roomDatabase.model.Note
 import com.example.learningapp.roomDatabase.viewmodel.NoteViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class AddNoteFragment : Fragment(R.layout.fragment_add_note), MenuProvider {
 
@@ -41,7 +47,10 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note), MenuProvider {
 
         if (noteTitle.isNotEmpty()){
             val note = Note(0, noteTitle, noteDesc)
-            notesViewModel.insertNote(note)
+
+            GlobalScope.launch(Dispatchers.IO) {
+                notesViewModel.insertNote(note)
+            }
 
             Toast.makeText(addNoteView.context, "Note saved", Toast.LENGTH_SHORT).show()
             view.findNavController().popBackStack(R.id.homeFragment, false)
