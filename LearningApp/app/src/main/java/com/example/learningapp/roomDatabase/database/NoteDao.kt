@@ -3,16 +3,18 @@ package com.example.learningapp.roomDatabase.database
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.learningapp.roomDatabase.model.Note
+import org.jetbrains.annotations.NotNull
 
+@Dao
 interface NoteDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertNote(note:Note)
+    @Insert()
+    suspend fun insertNote( note:Note)
 
     @Update
-    suspend fun updateNote(note:Note)
+    suspend fun updateNote( note:Note)
 
     @Delete
-    suspend fun deleteNote(note:Note)
+    suspend fun deleteNote( note:Note)
 
     @Query("SELECT * FROM NOTES ORDER BY id DESC")
     fun getAllNotes():LiveData<List<Note>>

@@ -3,7 +3,6 @@ package com.example.learningapp.roomDatabase.database
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
-import androidx.room.Room.databaseBuilder
 import androidx.room.RoomDatabase
 import com.example.learningapp.roomDatabase.model.Note
 
@@ -24,7 +23,7 @@ import com.example.learningapp.roomDatabase.model.Note
 //          //Room.databaseBuilder(context.applicationContext, NoteDatabase::class.java, "note_db").build()
 //    }
 //}
-@Database(entities = arrayOf(Note::class), version = 1, exportSchema = false)
+@Database(entities = arrayOf(Note::class), version = 2, exportSchema = false)
 abstract class NoteDatabase : RoomDatabase() {
     abstract fun getNoteDao():NoteDao
     companion object{
@@ -42,9 +41,7 @@ abstract class NoteDatabase : RoomDatabase() {
                 synchronized(NoteDatabase::class.java) {
                     if (instance == null) {
                         instance = Room.databaseBuilder(context.applicationContext,
-                            NoteDatabase::class.java, "abc_db")
-                            .fallbackToDestructiveMigration()
-//                            .addCallback(sRoomDatabaseCallback)
+                            NoteDatabase::class.java, "abc_db").fallbackToDestructiveMigration()
                             .build()
                     }
                 }
